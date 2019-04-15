@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Spring的IOC的注解的入门 -->
+    <!-- 使用IOC的注解开发，配置组件扫描(哪些包下的类要使用IOC注解) -->
+    <!-- 扫描是为了扫描类上的注解 -->
+    <!--<context:component-scan base-package="com.nice.spring.demo1,com.nice.spring.demo2"/>-->
+
+    <!-- 在没有扫描的情况下，使用属性注入的注解:@Resource,@Value,@Autowired,@Qualifier -->
+    <context:annotation-config/>
+
+    <bean id="productService" class="com.nice.spring.demo3.ProductService">
+        <!--<property name="productDao" ref="productDao"/>-->
+        <!--<property name="orderDao" ref="orderDao"/>-->
+    </bean>
+    <bean id="productDao" class="com.nice.spring.demo3.ProductDao"/>
+    <bean id="orderDao" class="com.nice.spring.demo3.OrderDao"/>
+</beans>
